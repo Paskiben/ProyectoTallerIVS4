@@ -31,14 +31,14 @@ export default function Test() {
                 </GridItem>
 
                 <GridItem colSpan={1} height="full" border="0px" borderColor="white" >
-                    <Select selectedOptionColor="yellow" color="white" bg="black" colorScheme={"purple"} borderColor={"red"}>
-                        <option class="numeros" value="6000" >6000</option>
-                        <option class="numeros" value="9000">9000</option>
-                        <option class="numeros" value="11000">11000</option>
-                        <option class="numeros" value="2000">2000</option>
-                        <option class="numeros" value="10000">1000</option>
-                        <option class="numeros" value="4000">4000</option>
-                        <option class="numeros" value="14000">14000</option>
+                    <Select selectedoptioncolor="yellow" color="white" bg="black" colorScheme={"purple"} borderColor={"red"}>
+                        <option className="numeros" value="6000" >6000</option>
+                        <option className="numeros" value="9000">9000</option>
+                        <option className="numeros" value="11000">11000</option>
+                        <option className="numeros" value="2000">2000</option>
+                        <option className="numeros" value="10000">1000</option>
+                        <option className="numeros" value="4000">4000</option>
+                        <option className="numeros" value="14000">14000</option>
                     </Select>
                 </GridItem>
                 <div id="scroll">
