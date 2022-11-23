@@ -5,7 +5,7 @@ const About = () => {
     <div className="container">
       <Head>
         <title>INFO104 About</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/kumble.ico" />
       </Head>
 
       <main>

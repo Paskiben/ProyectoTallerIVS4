@@ -16,7 +16,7 @@ const Layout = ({ children, pageId }) => {
   return (
     <div className="container">
       <Head>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/kumble.ico" />
         <meta name="description" content="Ejemplo de sitio web con menú" />
       </Head>
       <header className="menu">
