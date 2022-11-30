@@ -75,7 +75,7 @@ export default function Test() {
 
                     <div id="edificios">
                         <a href="https://www.google.com/">
-                            <img id="hola" src="/images/7k.jpg" alt="" />
+                            <img id="hola" src="/images/7k.jpeg" alt="" />
                         </a>
                         <a href="https://www.youtube.com/">
                             <img id="img2" src="/images/2k.jpg" alt="" />
@@ -90,6 +90,41 @@ export default function Test() {
                             <img id="img2" src="/images/10k.jpg" alt="" />
                         </a>
                     </div>
+
+                    <div id="edificios">
+                        <a href="https://www.google.com/">
+                            <img id="hola" src="/images/4k.jpeg" alt="" />
+                        </a>
+                        <a href="https://www.youtube.com/">
+                            <img id="img2" src="/images/11k.jpeg" alt="" />
+                        </a>
+                    </div>
+
+                    <div id="edificios">
+                        <a href="https://www.google.com/">
+                            <img id="hola" src="/images/6k.jpeg" alt="" />
+                        </a>
+                        <a href="https://www.youtube.com/">
+                            <img id="img2" src="/images/13k.jpeg" alt="" />
+                        </a>
+                    </div>
+
+                    <div id="edificios">
+                        <a href="https://www.google.com/">
+                            <img id="hola" src="/images/3k.jpeg" alt="" />
+                        </a>
+                        <a href="https://www.youtube.com/">
+                            <img id="img2" src="/images/gym.jpeg" alt="" />
+                        </a>
+                    </div>
+
+                    <div id="edificios">
+                        <a href="https://www.google.com/">
+                            <img id="hola" src="/images/14k.jpg" alt="" />
+                        </a>
+
+                    </div>
+
 
                 </div>
             </Grid>
