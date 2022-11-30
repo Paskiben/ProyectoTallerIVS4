@@ -53,7 +53,7 @@ export default function Test() {
                     <div id="edificios">
                         <Link
                             href={{
-                                pathname: "/buildings",
+                                pathname: "/9000",
                             }}
                         >
                             <a>
@@ -63,7 +63,7 @@ export default function Test() {
 
                         <Link
                             href={{
-                                pathname: "/buildings",
+                                pathname: "/8000",
                             }}
                         >
                             <a>
@@ -74,57 +74,92 @@ export default function Test() {
                     </div>
 
                     <div id="edificios">
-                        <a href="https://www.google.com/">
+                        <Link href={{
+                            pathname: "/7000",
+                        }}>
+                        <a>
                             <img id="hola" src="/images/7k.jpeg" alt="" />
                         </a>
-                        <a href="https://www.youtube.com/">
+                        </Link>
+                        <Link href={{
+                            pathname:"/2000"
+                        }}>
+                            <a>
                             <img id="img2" src="/images/2k.jpg" alt="" />
-                        </a>
+                            </a>
+                        </Link>
                     </div>
 
                     <div id="edificios">
-                        <a href="https://www.google.com/">
-                            <img id="hola" src="/images/9k.jpg" alt="" />
-                        </a>
-                        <a href="https://www.youtube.com/">
+                        <Link href={{
+                            pathname:"/10000"
+                        }}>
+                            <a>
                             <img id="img2" src="/images/10k.jpg" alt="" />
-                        </a>
+                            </a>
+                        </Link>
+                        <Link href={{
+                            pathname:"/4000"
+                        }}> 
+                            <a>
+                                <img id="hola" src="/images/4k.jpeg" alt="" />
+                            </a>
+                        </Link>
                     </div>
 
                     <div id="edificios">
-                        <a href="https://www.google.com/">
-                            <img id="hola" src="/images/4k.jpeg" alt="" />
-                        </a>
-                        <a href="https://www.youtube.com/">
+                        
+                        <Link href={{
+                            pathname:"/11000"
+                        }}>
+                            <a>
                             <img id="img2" src="/images/11k.jpeg" alt="" />
-                        </a>
-                    </div>
-
-                    <div id="edificios">
-                        <a href="https://www.google.com/">
+                            </a>
+                        </Link>
+                        <Link href={{
+                            pathname:"/6000"
+                        }}>
+                            <a>
                             <img id="hola" src="/images/6k.jpeg" alt="" />
-                        </a>
-                        <a href="https://www.youtube.com/">
+                            </a>
+                        </Link>
+                    </div>
+
+                    <div id="edificios">
+                        
+                        <Link href={{
+                            pathname:"/13000"
+                        }}>
+                            <a>
                             <img id="img2" src="/images/13k.jpeg" alt="" />
-                        </a>
-                    </div>
-
-                    <div id="edificios">
-                        <a href="https://www.google.com/">
+                            </a>
+                        </Link>
+                        <Link href={{
+                            pathname:"/3000"
+                        }}>
+                            <a>
                             <img id="hola" src="/images/3k.jpeg" alt="" />
-                        </a>
-                        <a href="https://www.youtube.com/">
-                            <img id="img2" src="/images/gym.jpeg" alt="" />
-                        </a>
+                            </a>
+                        </Link>
                     </div>
 
                     <div id="edificios">
-                        <a href="https://www.google.com/">
+                        
+                        <Link href={{
+                            pathname:"/gym"
+                        }}>
+                            <a>
+                            <img id="img2" src="/images/gym.jpeg" alt="" />
+                            </a>
+                        </Link>
+                        <Link href={{
+                            pathname:"/14000"
+                        }}> 
+                            <a>
                             <img id="hola" src="/images/14k.jpg" alt="" />
-                        </a>
-
+                            </a>
+                        </Link>
                     </div>
-
 
                 </div>
             </Grid>
