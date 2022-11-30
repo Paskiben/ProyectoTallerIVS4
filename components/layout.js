@@ -16,7 +16,7 @@ const Layout = ({ children, pageId }) => {
   return (
     <div className="container">
       <Head>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/kumble.ico" />
         <meta name="description" content="Ejemplo de sitio web con menú" />
       </Head>
       <header className="menu">
@@ -46,6 +46,15 @@ const Layout = ({ children, pageId }) => {
             Página 3
           </a>
         </Link>
+        
+        <Link href="/buildings">
+          <a
+            className={pageId === "buildings" ? "currentPage" :""}
+            onClick={incrementViews}
+            >
+            buildings
+          </a>
+        </Link>
 
         <Link href="/pageList">
           <a
@@ -56,6 +65,7 @@ const Layout = ({ children, pageId }) => {
           </a>
         </Link>
         <ViewCount count={nViews} reset={resetViews} />
+
       </header>
       <main>{children}</main>
     </div>
