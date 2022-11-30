@@ -7,6 +7,10 @@ export default function buildings() {
     return (
 
         <>
+            <Head>
+                <title>Edificios</title>
+                <link rel="icon" href="/kumble.ico" />
+            </Head>
             <HStack spacing="0px">
                 <Flex width="10vw" height="100vh" backgroundColor="black"> Project Glassroom </Flex>
 
