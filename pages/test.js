@@ -1,4 +1,6 @@
 import { Flex, HStack, Text, Divider, Image, Grid, GridItem, Select, } from "@chakra-ui/react";
+import Link from "next/link";
+
 
 export default function Test() {
 
@@ -41,24 +43,47 @@ export default function Test() {
                         <option className="numeros" value="14000">14000</option>
                     </Select>
                 </GridItem>
+
                 <div id="scroll">
                     <div id="edificios">
-                        <img id="hola" src="/images/9k.jpg" alt="" />
-                        <img id="img2" src="/images/10k.jpg" alt="" />
+                        <Link
+                            href={{
+                                pathname: "/buildings",
+                            }}
+                        >
+                            <a>
+                                <img id="hola" src="/images/9k.jpg" alt="" />
+                            </a>
+                        </Link>
+
+                        <Link
+                            href={{
+                                pathname: "/buildings",
+                            }}
+                        >
+                            <a>
+                                <img id="img2" src="/images/8k.jpg" alt="" />
+                            </a>
+                        </Link>
 
                     </div>
 
                     <div id="edificios">
-
+                        <a href="https://www.google.com/">
+                            <img id="hola" src="/images/7k.jpg" alt="" />
+                        </a>
+                        <a href="https://www.youtube.com/">
+                            <img id="img2" src="/images/2k.jpg" alt="" />
+                        </a>
                     </div>
-                    <div id="edificios">
-                        <img id="hola" src="/images/9k.jpg" alt="" />
-                        <img id="img2" src="/images/10k.jpg" alt="" />
-                    </div>
 
                     <div id="edificios">
-                        <img id="hola" src="/images/9k.jpg" alt="" />
-                        <img id="img2" src="/images/10k.jpg" alt="" />
+                        <a href="https://www.google.com/">
+                            <img id="hola" src="/images/9k.jpg" alt="" />
+                        </a>
+                        <a href="https://www.youtube.com/">
+                            <img id="img2" src="/images/10k.jpg" alt="" />
+                        </a>
                     </div>
 
                 </div>
@@ -68,7 +93,16 @@ export default function Test() {
             <HStack as="footer" h="15vh" bg="#161818" alignItems="center" border="0px">
                 <Image src="./images/KS.png" w="25vh" />
                 <Divider orientation="vertical" color="white"></Divider>
-                <Image src="https://cdn.discordapp.com/attachments/1022221381850632395/1034842785032970320/Logoblancopng.png" w="25vh" />
+                <Link
+                    href={{
+                        pathname: "https://www.uach.cl/inicio-uach",
+                    }}
+                >
+                    <a target="_blank">
+                        <Image src="https://cdn.discordapp.com/attachments/1022221381850632395/1034842785032970320/Logoblancopng.png" w="25vh" />
+                    </a>
+                </Link>
+
             </HStack>
         </>
     )

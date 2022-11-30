@@ -217,36 +217,40 @@ code {
 
 #edificios {
   display: flex;
-  width: 300px;
+  /*width: 300px;
   cursor: pointer;
   text-align: left;
-  color: white;
+  */
 }
 
 
 #hola {
+  width: 250px;
+  height: 150px;
   margin-right: 20px;
   margin-top: 30px;
-  height: 150px;
   border-radius: 10px;
   transition: height 0.5s;
 
 }
 
 #hola:hover {
-  height: 180px;
+  height: 160px;
+  width: 265px;
   border: 5px groove #facc22;
 }
 
 #img2 {
-  margin-top: 30px;
+  width: 250px;
   height: 150px;
+  margin-top: 30px;
   border-radius: 10px;
   transition: height 0.5s;
 }
 
 #img2:hover {
-  height: 180px;
+  height: 160px;
+  width: 265px;
   border: 5px groove #facc22;
 }
 
