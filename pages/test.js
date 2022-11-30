@@ -1,4 +1,5 @@
 import { Flex, HStack, Text, Divider, Image, Grid, GridItem, Select, } from "@chakra-ui/react";
+import Head from "next/head";
 
 export default function Test() {
 
@@ -7,6 +8,10 @@ export default function Test() {
 
     return (
         <>
+            <Head>
+            <title>Edificios</title>
+            <link rel="icon" href="/kumble.ico" />
+            </Head>
             <Flex as="topbar" bgGradient="linear(to-r, #e33e2e, #f7c21c)" h="5vh">
             </Flex>
 
