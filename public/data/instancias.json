@@ -1,0 +1,23 @@
+{
+    "instanciasTotales":3,
+    "permanentes":{
+        "1":{
+            "asignatura":"Estructuras discretas",
+            "responsable":"Maria Eliana de la Maza",
+            "Temp":-1
+        },
+        "2":{
+            "asignatura":"EDO",
+            "responsable":"Daniel Sanchez",
+            "Temp":-1
+        }
+    },
+
+    "temporales":{
+        "3":{
+            "asignatura":"Workshop Info 2022",
+            "responsable":"Benjamin Parra",
+            "Temp":0
+        }
+    }
+}

@@ -1,21 +1,13 @@
 import { Flex, HStack, VStack, Text } from "@chakra-ui/react";
+import { getSchedule } from "../public/functions/instancesToolkit.js";
 
 let M;
-let id = "9101";
-
-async function getSchedule(edificio){
-    let data = await fetch(`data/${edificio}.JSON`);
-    M = await data.json();
-    console.log(M[id]);
-    console.log(M[id].horario);
-    let periodos = M[id].horario;
-    for (let i=0; i<7; i++) for (let j=1; j<7; j++) document.getElementById(`${i*10 + j}`).innerHTML=periodos[j-1][i]!=0?`${periodos[j-1][i]}`:'-';
-    document.getElementById('indicadorDatosRecibidos').innerHTML="";
-}
+let edificio = "9000"
+let sala = "9102";
 
 function readScheduleMatrix() {
     let lines = [(<HStack key="bar1" h="12.5%" w="100%" bgColor={"blue.400"} px="2%">
-            <Text w="6%" color="black" id='indicadorDatosRecibidos'>En espera.</Text>
+            <Text w="6%" color="black" id='indicadorDatosRecibidos'>{sala}</Text>
             <Text key="Lunes" w="15.6%" textAlign="center" borderRight="2px">Lunes</Text>
             <Text key="Martes" w="15.6%" textAlign="center" borderRight="2px">Martes</Text>
             <Text key="Miercoles" w="15.6%" textAlign="center" borderRight="2px">Miercoles</Text>
@@ -53,7 +45,7 @@ export default function showschedule() {
             <VStack h="100vh" spacing="0px">
                 {readScheduleMatrix()}
             </VStack>
-            {void getSchedule("9000")}
+            {void getSchedule(edificio,sala)}
         </>
     )
 }
