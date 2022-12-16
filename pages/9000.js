@@ -1,9 +1,8 @@
 import Head from "next/head";
 import Link from "next/link";
-import { Flex, HStack, Text, Divider, Image, Grid, GridItem, Select} from "@chakra-ui/react";
+import { Flex, HStack, Text, Divider, Image, Grid, GridItem, Select, AspectRatio} from "@chakra-ui/react";
 import { useState } from "react";
 import Script from "next/script";
-
 
 export default function Nueve(){
     const [value, setValue] = useState("9101");
@@ -40,15 +39,18 @@ export default function Nueve(){
                         <option value="9104">9104</option>
                     </Select>
             </GridItem>
-            <GridItem colSpan={4} align="center">
+            <GridItem colSpan={4} align="center" >
                 <Text color ="white"> Horario sala {value}</Text>
-                <iframe src="showschedule"
-                        name="Schedule"
+                
+                <iframe
+                        src={"showschedule?id="+value+"&ed=9000"}
+                        id="Schedule"
                         allowTransparency="true"
                         frameborder="0px"
-                        width="1000"
+                        width="90%"
                         height="500">
                 </iframe>
+                
             </GridItem>
             </Grid>
             <HStack as="footer" h="15vh" bg="#161818" alignItems="center" border="0px">
