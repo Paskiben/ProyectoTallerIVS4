@@ -7,9 +7,14 @@ export default function Test() {
 
     const bgColor = "#161818";
 
-
+    function nav(value) {
+        if (value != "") {
+            location.href = value
+        };
+    }
     return (
         <>
+
             <Head>
                 <title>Edificios</title>
                 <link rel="icon" href="/kumble.ico" />
@@ -37,17 +42,14 @@ export default function Test() {
                     </Text>
                 </GridItem>
 
-                <GridItem colSpan={1} height="full" border="0px" borderColor="white" >
-                    <Select selectedoptioncolor="yellow" color="white" bg="black" colorScheme={"purple"} borderColor={"red"}>
-                        <option className="numeros" value="6000" >6000</option>
-                        <option className="numeros" value="9000">9000</option>
-                        <option className="numeros" value="11000">11000</option>
-                        <option className="numeros" value="2000">2000</option>
-                        <option className="numeros" value="10000">1000</option>
-                        <option className="numeros" value="4000">4000</option>
-                        <option className="numeros" value="14000">14000</option>
-                    </Select>
-                </GridItem>
+
+                <select name="seleccion" onchange="document.location=seleccion.value">
+                    <option selected>Selecciona una opción</option>
+                    <option value="https://www.google.com/">Opcion1</option>
+                    <option value="https://www.google.com/">Opcion2</option>
+                    <option value="https://www.google.com/">Opcion3</option>
+                </select>
+
 
                 <div id="scroll">
                     <div id="edificios">
