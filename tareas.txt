@@ -1,0 +1,4 @@
+Para showschedule:
+-Automatizar el estilo de las columnas:
+	<Text key={key} w="16.6%" textAlign="center">{data}</Text> -> <colmat key={} data={}></colmat>
+	
