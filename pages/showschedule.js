@@ -44,8 +44,8 @@ export default function showschedule() {
 
     const router = useRouter();
     console.log(router.query);
-    var sala = router.query["sala"];
-    var edificio = router.query["edificio"];
+    sala = router.query["sala"];
+    edificio = router.query["edificio"];
 
     return (
         <>

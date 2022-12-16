@@ -18,7 +18,7 @@ export default function Nueve(){
             </Flex>
             <Grid
                 as="content"
-                h="100vh"
+                h="80vh"
                 w="full"
                 bg="#161818"
                 alignItems="center"
