@@ -43,7 +43,7 @@ export default function Nueve(){
                 <Text color ="white"> Horario sala {value}</Text>
                 
                 <iframe
-                        src={"showschedule?id="+value+"&ed=9000"}
+                        src={"showschedule?sala="+value+"&edificio=9000"}
                         id="Schedule"
                         allowTransparency="true"
                         frameborder="0px"
