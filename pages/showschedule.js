@@ -1,9 +1,10 @@
 import { HStack, VStack, Text } from "@chakra-ui/react";
 import { getSchedule } from "../public/functions/instancesToolkit.js";
+import { useRouter } from "next/router.js";
 
-let M;
-let edificio = "9000"
-let sala = "9101";
+const router = useRouter();
+let edificio = router.query.ed;
+let sala = router.query.id;
 
 function readScheduleMatrix() {
     let lines = [(<HStack key="bar1" h="12.5%" w="100%" bgColor={"blue.400"} px="2%">
