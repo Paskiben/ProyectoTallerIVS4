@@ -9,7 +9,6 @@ export async function Salas(edificio){
     let salas = await (await fetch("data/"+edificio+".json")).json();
     for (let sala in salas) 
         document.getElementById("salas").innerHTML += `<option key='${sala}' value='${sala}'>${sala}</option>`;
-
 }
 
 export default function Nueve(){
