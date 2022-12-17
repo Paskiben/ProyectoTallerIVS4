@@ -25,7 +25,7 @@ export default function Nueve() {
         document.getElementById("frameplace").innerHTML = `<iframe src="showschedule?sala=${value}&edificio=${edificio}" id="Schedule" width="90%" height="500"></iframe>`
     }
 
-    setTimeout(async ()=>{iframegen()},25);
+    useEffect(() => {setTimeout(async ()=>{iframegen()},500)});
 
     return (
 
@@ -51,7 +51,7 @@ export default function Nueve() {
                 </GridItem>
                 <GridItem colSpan={4} align="center" >
                     <Text color="white"> Horario sala </Text>
-                        <fr id="frameplace"></fr>
+                        <div id="frameplace"></div>
                 </GridItem>
             </Grid>
             <HStack as="footer" h="15vh" bg="#161818" alignItems="center" border="0px">

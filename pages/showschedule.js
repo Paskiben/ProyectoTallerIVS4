@@ -53,7 +53,7 @@ export default function showschedule() {
             <VStack h="100vh" spacing="0px">
                 {readScheduleMatrix()}
             </VStack>
-            {void getSchedule(edificio,sala)}
+            {void setTimeout(async () => {getSchedule(edificio,sala)},150)}
         </>
     )
 
