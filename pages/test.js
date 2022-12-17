@@ -19,11 +19,11 @@ export default function Test() {
                 <title>Edificios</title>
                 <link rel="icon" href="/kumble.ico" />
             </Head>
-            <Flex as="topbar" bgGradient="linear(to-r, #e33e2e, #f7c21c)" h="5vh">
+            <Flex bgGradient="linear(to-r, #e33e2e, #f7c21c)" h="5vh">
             </Flex>
 
             <Grid
-                as="content"
+
                 h="80vh"
                 w="full"
                 bg="#161818"
@@ -43,8 +43,8 @@ export default function Test() {
                 </GridItem>
 
 
-                <select name="seleccion" onchange="document.location=seleccion.value">
-                    <option selected>Selecciona una opción</option>
+                <select name="seleccion">
+                    <option >Selecciona una opción</option>
                     <option value="https://www.google.com/">Opcion1</option>
                     <option value="https://www.google.com/">Opcion2</option>
                     <option value="https://www.google.com/">Opcion3</option>

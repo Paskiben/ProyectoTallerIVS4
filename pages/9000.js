@@ -23,10 +23,9 @@ export default function Nueve() {
             <Head>
                 <title>9000</title>
             </Head>
-            <Flex as="topbar" bgGradient="linear(to-r, #e33e2e, #f7c21c)" h="5vh">
+            <Flex bgGradient="linear(to-r, #e33e2e, #f7c21c)" h="5vh">
             </Flex>
             <Grid
-                as="content"
                 h="80vh"
                 w="full"
                 bg="#161818"
