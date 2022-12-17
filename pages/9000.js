@@ -2,11 +2,21 @@ import Head from "next/head";
 import Link from "next/link";
 import { Flex, HStack, Text, Divider, Image, Grid, GridItem, Select, AspectRatio} from "@chakra-ui/react";
 import { useState } from "react";
-import Script from "next/script";
+import { useRouter } from "next/router.js"
+
+export async function Salas(edificio){
+    if (edificio == undefined) return;
+    let salas = await (await fetch("data/"+edificio+".json")).json();
+    for (let sala in salas) 
+        document.getElementById("salas").innerHTML += `<option key='${sala}' value='${sala}'>${sala}</option>`;
+
+}
 
 export default function Nueve(){
     const [value, setValue] = useState("9101");
 
+    let edificio=useRouter().query.edificio;
+    if (edificio != undefined) Salas(edificio);
 
     return (
         
@@ -29,14 +39,7 @@ export default function Nueve(){
                 gap={4}
             >
             <GridItem colSpan={1} height="full" border="0px" borderColor="white" >
-                    <Select id="salas" selectedoptioncolor="yellow" color="black" bg="white" colorScheme={"purple"} borderColor={"orange"} 
-                            onChange={(e) => {
-                            setValue(e.target.value);
-                                }}>
-                        <option value="9101" selected>9101</option>
-                        <option value="9102">9102</option>
-                        <option value="9103">9103</option>
-                        <option value="9104">9104</option>
+                    <Select id="salas" selectedoptioncolor="yellow" color="black" bg="white" colorScheme={"purple"} borderColor={"orange"}>
                     </Select>
             </GridItem>
             <GridItem colSpan={4} align="center" >
@@ -45,8 +48,6 @@ export default function Nueve(){
                 <iframe
                         src={"showschedule?sala="+value+"&edificio=9000"}
                         id="Schedule"
-                        allowTransparency="true"
-                        frameborder="0px"
                         width="90%"
                         height="500">
                 </iframe>

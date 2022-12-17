@@ -53,7 +53,7 @@ export default function Test() {
                     <div id="edificios">
                         <Link
                             href={{
-                                pathname: "/9000",
+                                pathname: "/9000?edificio=9000",
                             }}
                         >
                             <a>
@@ -63,7 +63,7 @@ export default function Test() {
 
                         <Link
                             href={{
-                                pathname: "/8000",
+                                pathname: "/9000?edificio=8000",
                             }}
                         >
                             <a>
@@ -75,7 +75,7 @@ export default function Test() {
 
                     <div id="edificios">
                         <Link href={{
-                            pathname: "/7000",
+                            pathname: "/9000?edificio=7000",
                         }}>
                         <a>
                             <img id="hola" src="/images/7k.jpeg" alt="" />
