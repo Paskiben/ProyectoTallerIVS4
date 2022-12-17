@@ -34,6 +34,13 @@ export default function Nueve() {
                 <title>Edificio</title>
             </Head>
             <Flex bgGradient="linear(to-r, #e33e2e, #f7c21c)" h="5vh">
+                <Link href={
+                    "/test"
+                }>
+                    <a className="volver">
+                        Volver
+                    </a>
+                </Link>
             </Flex>
             <Grid
                 h="80vh"
