@@ -1,6 +1,6 @@
 import { Flex, HStack, Text, Divider, Image, Grid, GridItem, Select, } from "@chakra-ui/react";
 import Link from "next/link";
-
+import useRouter from "next/router.js"
 import Head from "next/head";
 
 export default function Test() {
@@ -54,9 +54,7 @@ export default function Test() {
                 <div id="scroll">
                     <div id="edificios">
                         <Link
-                            href={{
-                                pathname: "/9000?edificio=9000",
-                            }}
+                            href={"/9000?edificio=9000"}
                         >
                             <a>
                                 <img id="hola" src="/images/9k.jpg" alt="" />
@@ -64,9 +62,7 @@ export default function Test() {
                         </Link>
 
                         <Link
-                            href={{
-                                pathname: "/9000?edificio=8000",
-                            }}
+                            href={`/9000?edificio=8000`}
                         >
                             <a>
                                 <img id="img2" src="/images/8k.jpg" alt="" />
@@ -76,16 +72,12 @@ export default function Test() {
                     </div>
 
                     <div id="edificios">
-                        <Link href={{
-                            pathname: "/9000?edificio=7000",
-                        }}>
+                        <Link href={`/9000?edificio=7000`}>
                         <a>
                             <img id="hola" src="/images/7k.jpeg" alt="" />
                         </a>
                         </Link>
-                        <Link href={{
-                            pathname:"/2000"
-                        }}>
+                        <Link href={`/9000?edificio=2000`}>
                             <a>
                             <img id="img2" src="/images/2k.jpg" alt="" />
                             </a>
