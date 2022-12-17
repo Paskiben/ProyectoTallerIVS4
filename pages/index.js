@@ -1,6 +1,16 @@
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
+import { Button } from "@chakra-ui/react";
+
+export async function search(edificio) {
+  let instance = await (await fetch(`data/instancias.json`)).json();
+  console.log(instance);
+}
+
+
+
+
 const Index = () => {
   return (
     <div className="container">
@@ -10,6 +20,11 @@ const Index = () => {
       </Head>
 
       <main>
+        <Button
+          onClick={void search()}>
+          busqueda
+        </Button>
+
         <Image
           src="/images/eye.png"
           height={294} // Desired size with correct aspect ratio
