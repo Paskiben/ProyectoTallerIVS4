@@ -4,7 +4,7 @@ import useRouter from "next/router.js"
 import Head from "next/head";
 import Example from "./slide";
 
-  
+
 
 export default function Test() {
 
@@ -35,7 +35,8 @@ export default function Test() {
             >
 
                 <GridItem height="full">
-                    <Example/>
+                    <Example />
+                    <img className="flechas" src="/images/derecha.png"></img>
                 </GridItem>
             </Grid>
 

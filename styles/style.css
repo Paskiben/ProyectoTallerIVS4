@@ -235,30 +235,47 @@ code {
   margin: 30% 60%;
 }
 
-#edificios {
-  display: flex;
-  /*width: 300px;
-  cursor: pointer;
-  text-align: left;
-  */
+.edificios {
+  height: 400px;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 1000px;
 }
 
+.flechas {
+  width: 4%;
+  margin-left: 53.65%;
+  margin-top: 0.4%;
+}
 
-#hola {
-  width: 250px;
-  height: 150px;
-  margin-right: 20px;
-  margin-top: 30px;
-  border-radius: 10px;
-  transition: height 0.5s;
+.flechas:hover {
+  border: 5px solid white;
+}
+
+.Nombres {
+  color: #facc22;
+  font-size: 28px;
+  text-align: center;
+  font-family: Verdana;
+  font-family: 'PT Sans';
 
 }
 
-#hola:hover {
-  height: 160px;
-  width: 265px;
+#fotos {
+  width: 500px;
+  height: 80%;
+  object-fit: contain;
+  border-radius: 14px;
+  /*transition: height 0.5s;*/
+
+}
+
+#fotos:hover {
   border: 5px groove #facc22;
 }
+
 
 #img2 {
   width: 250px;
