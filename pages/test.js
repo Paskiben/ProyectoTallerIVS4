@@ -2,10 +2,14 @@ import { Flex, HStack, Text, Divider, Image, Grid, GridItem, Select, } from "@ch
 import Link from "next/link";
 import useRouter from "next/router.js"
 import Head from "next/head";
+import Example from "./slide";
+
+  
 
 export default function Test() {
 
     const bgColor = "#161818";
+
 
     function nav(value) {
         if (value != "") {
@@ -27,135 +31,12 @@ export default function Test() {
                 h="80vh"
                 w="full"
                 bg="#161818"
-                alignItems="center"
-                padding="3vh"
-
-
-                templateRows="repeat(1,1fr)"
-                templateColumns="repeat(2,1fr)"
-                gap={4}
+                padding="0vh"
             >
 
-                <GridItem colSpan={1} height="full">
-                    <Text color="red">
-
-                    </Text>
+                <GridItem height="full">
+                    <Example/>
                 </GridItem>
-
-
-                <select name="seleccion">
-                    <option >Selecciona una opción</option>
-                    <option value="https://www.google.com/">Opcion1</option>
-                    <option value="https://www.google.com/">Opcion2</option>
-                    <option value="https://www.google.com/">Opcion3</option>
-                </select>
-
-
-                <div id="scroll">
-                    <div id="edificios">
-                        <Link
-                            href={"/9000?edificio=9000"}
-                        >
-                            <a>
-                                <img id="hola" src="/images/9k.jpg" alt="" />
-                            </a>
-                        </Link>
-
-                        <Link
-                            href={`/9000?edificio=8000`}
-                        >
-                            <a>
-                                <img id="img2" src="/images/8k.jpg" alt="" />
-                            </a>
-                        </Link>
-
-                    </div>
-
-                    <div id="edificios">
-                        <Link href={`/9000?edificio=7000`}>
-                        <a>
-                            <img id="hola" src="/images/7k.jpeg" alt="" />
-                        </a>
-                        </Link>
-                        <Link href={`/9000?edificio=2000`}>
-                            <a>
-                            <img id="img2" src="/images/2k.jpg" alt="" />
-                            </a>
-                        </Link>
-                    </div>
-
-                    <div id="edificios">
-                        <Link href={{
-                            pathname:"/10000"
-                        }}>
-                            <a>
-                            <img id="img2" src="/images/10k.jpg" alt="" />
-                            </a>
-                        </Link>
-                        <Link href={{
-                            pathname:"/4000"
-                        }}> 
-                            <a>
-                                <img id="hola" src="/images/4k.jpeg" alt="" />
-                            </a>
-                        </Link>
-                    </div>
-
-                    <div id="edificios">
-                        
-                        <Link href={{
-                            pathname:"/11000"
-                        }}>
-                            <a>
-                            <img id="img2" src="/images/11k.jpeg" alt="" />
-                            </a>
-                        </Link>
-                        <Link href={{
-                            pathname:"/6000"
-                        }}>
-                            <a>
-                            <img id="hola" src="/images/6k.jpeg" alt="" />
-                            </a>
-                        </Link>
-                    </div>
-
-                    <div id="edificios">
-                        
-                        <Link href={{
-                            pathname:"/13000"
-                        }}>
-                            <a>
-                            <img id="img2" src="/images/13k.jpeg" alt="" />
-                            </a>
-                        </Link>
-                        <Link href={{
-                            pathname:"/3000"
-                        }}>
-                            <a>
-                            <img id="hola" src="/images/3k.jpeg" alt="" />
-                            </a>
-                        </Link>
-                    </div>
-
-                    <div id="edificios">
-                        
-                        <Link href={{
-                            pathname:"/gym"
-                        }}>
-                            <a>
-                            <img id="img2" src="/images/gym.jpeg" alt="" />
-                            </a>
-                        </Link>
-                        <Link href={{
-                            pathname:"/14000"
-                        }}> 
-                            <a>
-                            <img id="hola" src="/images/14k.jpg" alt="" />
-                            </a>
-                        </Link>
-                    </div>
-
-                </div>
             </Grid>
 
 
