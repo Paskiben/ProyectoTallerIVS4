@@ -1,21 +1,13 @@
+import { Flex, HStack, Text, Divider, Image, Grid, GridItem, Select, Input, Button } from "@chakra-ui/react";
+import Link from "next/link";
+import React, { useEffect } from "react";
+import useRouter from "next/router.js"
+import Head from "next/head";
+import Script from "next/script";
+import Fuse from "fuse.js";
+import instancias from "../public/data/instancias.json"
 
-export async function getSchedule(edificio, id) {
-    let M = await (await fetch(`data/${edificio}.json`)).json();
-    let periodos = M[id].horario;
-    for (let i = 0; i < 7; i++) for (let j = 1; j < 7; j++)
-        document.getElementById(`${i * 10 + j}`).innerHTML =
-            periodos[j - 1][i] != 0 ? `${(await leerInstancia(periodos[j - 1][i]))["asignatura"]}` :
-                '-';
-
-    return true;
-}
-
-export async function leerInstancia(numero) {
-    let data = await (await fetch(`data/instancias.JSON`)).json();
-    return data[numero];
-}
-
-export function buscar(profe, asign){
+function buscar(profe, asign){
     var fusej = []
 
     for(let elem in instancias) {
@@ -58,4 +50,16 @@ export function buscar(profe, asign){
         );
         console.log(results);
     }
+}
+
+export default function Test() {
+    useEffect(()=>{
+        document.getElementById("Texto").setAttribute("onChange","buscar((document.getElementById('Texto').value), '')")
+    })
+    return (
+        <>
+            <input id="Texto" placeholder="results"/> 
+        </>
+            
+    )
 }
