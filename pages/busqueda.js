@@ -52,7 +52,7 @@ export default function buscar() {
     let i = 0;
     for (let elem of allResultsArray) {
         outElems.push(
-            <VStack key={elem.id + "Stack"} h="50vh" paddingTop={"4vh"} bgColor={"blackAlpha.900"}>
+            <VStack key={elem.id + "Stack"} paddingTop={"4vh"} bgColor={"blackAlpha.900"}>
                 <Text key={elem.id + "Text"} color="white" bgGradient="linear(to-r, #e33e2e, #f7c21c)" w="full" textAlign="center">Opcion {++i}</Text>
                 <Input key={elem.id + "Input1"} disabled color="white" id="Texto1" value={elem.responsable} />
                 <Input key={elem.id + "Input2"} disabled color="white" id="Texto2" value={elem.asignatura} />
