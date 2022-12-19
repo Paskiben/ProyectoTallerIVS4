@@ -43,23 +43,38 @@ function readScheduleMatrix(sala) {
 
 export default function showschedule() {
 
-    edificio = useRouter().query.edificio ?? 9000;
-    sala = useRouter().query.sala ?? 9101;
+    sala = useRouter().query.sala;
+    edificio = useRouter().query.edificio;
 
-    const obtenerDatos = async () => {
-        const data = await (await fetch('data/' + edificio + '.json')).json();
-        const info = await (await fetch('data/instancias.json')).json();
-        for (let periodo = 0; periodo < 7; periodo++)
-            for (let dia = 1; dia < 7; dia++)
-                document.getElementById(periodo * 10 + dia).innerHTML =
-                    info[data[sala].horario[dia - 1][periodo]] == undefined ?
-                        '-' : info[data[sala].horario[dia - 1][periodo]].asignatura;
+
+
+    const obtenerDatos = async (sala, edificio) => {
+
+        const data = (await (await fetch('./data/' + edificio + '.json')).json())[sala];
+        const info = await (await fetch('./data/instancias.json')).json();
+
+        console.log('data/' + edificio + '.json');
+        console.log(data, info);
+        console.log(edificio, sala)
+
+
+        let i = 0, j = 0;
+        for (let dia of data.horario) {
+            i++; j = 0;
+            for (let clase of dia) {
+                document.getElementById(i + 10 * j).innerHTML =
+                    clase == 0 ? '-' : info[clase].asignatura;
+                document.getElementById(i + 10 * j++).value = info[clase];
+            }
+        }
     }
 
-    useEffect(() => {
-        obtenerDatos(sala)
+    /*useEffect(() => {
+        console.log(sala, edificio);
+        obtenerDatos(sala, edificio);
     }, [])
-
+    */
+    setTimeout(async () => { obtenerDatos(sala, edificio) }, 250);
 
     if (edificio == undefined) return;
 
