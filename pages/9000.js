@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import { Flex, HStack, Text, Divider, Image, Grid, GridItem, Select, AspectRatio } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/router.js"
 
 export async function Salas(edificio) {

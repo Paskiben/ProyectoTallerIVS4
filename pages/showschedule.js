@@ -1,6 +1,6 @@
 import { HStack, VStack, Text } from "@chakra-ui/react";
 import { useRouter } from "next/router.js";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 let edificio;
 let sala;
@@ -41,13 +41,12 @@ function readScheduleMatrix(sala) {
     return (lines)
 }
 
-export default function showschedule(sala) {
+export default function showschedule() {
 
     edificio = useRouter().query.edificio ?? 9000;
     sala = useRouter().query.sala ?? 9101;
 
     const obtenerDatos = async () => {
-        console.log(await fetch('data/' + edificio + '.json'));
         const data = await (await fetch('data/' + edificio + '.json')).json();
         const info = await (await fetch('data/instancias.json')).json();
         for (let periodo = 0; periodo < 7; periodo++)
