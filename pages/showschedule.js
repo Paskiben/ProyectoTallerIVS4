@@ -47,6 +47,7 @@ export default function showschedule(sala) {
     sala = useRouter().query.sala ?? 9101;
 
     const obtenerDatos = async () => {
+        console.log(await fetch('data/' + edificio + '.json'));
         const data = await (await fetch('data/' + edificio + '.json')).json();
         const info = await (await fetch('data/instancias.json')).json();
         for (let periodo = 0; periodo < 7; periodo++)
