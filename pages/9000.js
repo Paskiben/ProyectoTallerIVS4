@@ -23,17 +23,19 @@ export default function Nueve() {
 
     function iframegen() {
         let value = document.getElementById("salas").value;
-        document.getElementById("frameplace").innerHTML =
-            `<iframe width="100%" height="100%" src="showschedule?sala=${value}&edificio=${edificio}" id="Schedule"></iframe>`;
-        document.getElementById("ajaxInstancias").setAttribute("src",
-            "./ajaxInstancias?edificio=" + edificio + "&sala=" + value);
-        toLocal();
+        console.log(value);
+            document.getElementById("frameplace").innerHTML =
+                `<iframe width="100%" height="100%" src="showschedule?sala=${value}&edificio=${edificio}" id="Schedule"></iframe>`;
+            document.getElementById("ajaxInstancias").setAttribute("src",
+                "./ajaxInstancias?edificio=" + edificio + "&sala=" + value);
+            
+                toLocal();
     }
 
     async function toLocal() {
         let sala = document.getElementById("salas").value;
         const info = await (await fetch('./data/instancias.json')).json();
-        if (sala != undefined) {
+        if (sala !== undefined) {
             const data = (await (await fetch('./data/' + edificio + '.json')).json())[sala];
 
             if (!localStorage.getItem(sala)) {
