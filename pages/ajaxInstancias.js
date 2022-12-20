@@ -4,22 +4,38 @@ import { useRouter } from "next/router.js";
 
 function deshabilitarEdicionPeriodos() {
     document.getElementById("entradaDuracion").disabled = !document.getElementById("entradaDuracion").disabled;
+    if (document.getElementById("entradaDuracion").disabled) document.getElementById("entradaDuracion").value = "";
 }
 
 export default function Test() {
+
+    var edificio = useRouter().query.edificio;
+    var sala = useRouter().query.sala;
 
     function cambiar() {
         document.getElementById("resultadosDeBusqueda").setAttribute("src",
             "busqueda?profesor=" +
             (document.getElementById("entradaProfesor").value == "" ? "NA" : document.getElementById("entradaProfesor").value) +
             "&asignatura=" +
-            (document.getElementById("entradaAsignatura").value == "" ? "NA" : document.getElementById("entradaAsignatura").value));
+            (document.getElementById("entradaAsignatura").value == "" ? "NA" : document.getElementById("entradaAsignatura").value) +
+            "&dia=" +
+            document.getElementById("selectDia").value +
+            "&periodo=" +
+            document.getElementById("selectPeriodo").value +
+            "&edificio=" +
+            edificio +
+            "&sala=" +
+            sala
+        );
     }
 
     function agregar() {
-        console.log(document.getElementById("selectDia").value, document.getElementById("selectPeriodo").value);
+        console.log(document.getElementById("selectDia").value, document.getElementById("selectPeriodo").value
+            , edificio, sala, document.getElementById("entradaProfesor").value,
+            document.getElementById("entradaAsignatura").value, document.getElementById(
+                "entradaAutocompletar").checked, document.getElementById("entradaPermanencia").checked,
+            document.getElementById("entradaDuracion").value);
     }
-
 
 
     return (
@@ -27,7 +43,7 @@ export default function Test() {
         <VStack h="100vh" bgColor={"blackAlpha.900"}>
             <Text w="full" textAlign="center" color="white" bgGradient="linear(to-r, #e33e2e, #f7c21c)">Agregar instancia</Text>
             <HStack w="full">
-                <Select id="selectDia" borderColor="orange" color="gray">
+                <Select id="selectDia" onChange={cambiar} borderColor="orange" color="gray">
                     <option value="0">Lunes</option>
                     <option value="1">Martes</option>
                     <option value="2">Miercoles</option>
@@ -35,7 +51,7 @@ export default function Test() {
                     <option value="4">Viernes</option>
                     <option value="5">Sabado</option>
                 </Select>
-                <Select id="selectPeriodo" borderColor="orange" color="gray">
+                <Select id="selectPeriodo" onChange={cambiar} borderColor="orange" color="gray">
                     <option value="0">I</option>
                     <option value="1">II</option>
                     <option value="2">III</option>
@@ -49,7 +65,7 @@ export default function Test() {
             <Input color="white" id="entradaAsignatura" placeholder="Asignatura" onChange={cambiar} />
 
             <HStack>
-                <Text color="white" >Recomendar:</Text>
+                <Text color="white">Recomendar:</Text>
                 <Checkbox id="entradaAutocompletar" defaultChecked="true"></Checkbox>
             </HStack>
 
@@ -59,8 +75,8 @@ export default function Test() {
             </HStack>
 
             <Input disabled color="white" id="entradaDuracion" placeholder="Duracion (en periodos)" />
-            <Button bgColor="green.200" onClick={agregar}>Crear instancia</Button>
-            <Button bgColor="red.200">Borrar seleccion</Button>
+            <Button bgColor="green" color="white" onClick={agregar}>Crear instancia</Button>
+            <Button bgColor="red.500" color="white">Borrar seleccion</Button>
 
             <Text id="matrixData" color="white">{"" + (useRouter().query.dia ?? "") + (useRouter().query.periodo ?? "")}</Text>
 

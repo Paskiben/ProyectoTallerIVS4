@@ -3,14 +3,17 @@ import { useRouter } from "next/router.js";
 import instancias from "../public/data/instancias.json";
 import { Text, Input, Button, VStack, Checkbox, HStack } from "@chakra-ui/react";
 
-export function guardarRecomendacion() {
-    console.log("Hola")
-}
 
 export default function buscar() {
 
-    let asign = useRouter().query.asignatura ?? "";
-    let profe = useRouter().query.profesor ?? "";
+    var asign = useRouter().query.asignatura ?? "";
+    var profe = useRouter().query.profesor ?? "";
+
+    var edificio = useRouter().query.edificio;
+    var sala = useRouter().query.sala;
+    var dia = useRouter().query.dia;
+    var periodo = useRouter().query.periodo;
+
 
 
     if (profe == "NA") profe = "";
@@ -20,6 +23,13 @@ export default function buscar() {
             Para ver recomendaciones, escriba algo en el recuadro de profesor o asignatura
         </Text>
     </VStack>
+
+
+    function guardarRecomendacion() {
+        console.log(dia, periodo, edificio, sala, document.getElementById("1Input1").value, document.getElementById("1Input2").value,
+            document.getElementById("1Permanente").checked, document.getElementById("1Duracion").value
+        )
+    }
 
     let fusej = [];
     for (let elem in instancias)
@@ -53,17 +63,17 @@ export default function buscar() {
     for (let elem of allResultsArray) {
         outElems.push(
             <VStack key={elem.id + "Stack"} paddingTop={"4vh"} bgColor={"blackAlpha.900"}>
-                <Text key={elem.id + "Text"} color="white" bgGradient="linear(to-r, #e33e2e, #f7c21c)" w="full" textAlign="center">Opcion {++i}</Text>
-                <Input key={elem.id + "Input1"} disabled color="white" id="Texto1" value={elem.responsable} />
-                <Input key={elem.id + "Input2"} disabled color="white" id="Texto2" value={elem.asignatura} />
+                <Text key={elem.id + "Text"} id={i + "Text"} color="white" bgGradient="linear(to-r, #e33e2e, #f7c21c)" w="full" textAlign="center">Opcion {++i}</Text>
+                <Input key={elem.id + "Input1"} id={i + "Input1"} disabled color="white" value={elem.responsable} />
+                <Input key={elem.id + "Input2"} id={i + "Input2"} disabled color="white" value={elem.asignatura} />
 
                 <HStack>
                     <Text color="white">Permanente:</Text>
-                    <Checkbox defaultChecked={elem.Temp == -1} disabled></Checkbox>
+                    <Checkbox id={i + "Permanente"} defaultChecked={elem.Temp == -1} disabled></Checkbox>
                 </HStack>
 
-                <Input key={elem.id + "Input3"} disabled color="white" id="Texto2" value={elem.Temp == -1 ? "permanente" : elem.Temp} />
-                <Button key={elem.id + "Button"} onClick={guardarRecomendacion} >Usar opcion {i}</Button>
+                <Input key={elem.id + "Input3"} disabled color="white" id={i + "Duracion"} value={elem.Temp == -1 ? "permanente" : elem.Temp} />
+                {(i == 1 ? <Button key={elem.id + "Button"} onClick={guardarRecomendacion} bgColor="green" color="white">Usar opcion 1</Button> : <></>)}
             </VStack>
         )
     }

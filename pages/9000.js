@@ -23,13 +23,14 @@ export default function Nueve() {
     function iframegen() {
         let value = document.getElementById("salas").value;
         document.getElementById("frameplace").innerHTML =
-            `<iframe width="100%" height="100%" src="showschedule?sala=${value}&edificio=${edificio}" id="Schedule"></iframe>`
+            `<iframe width="100%" height="100%" src="showschedule?sala=${value}&edificio=${edificio}" id="Schedule"></iframe>`;
+        document.getElementById("ajaxInstancias").setAttribute("src",
+            "./ajaxInstancias?edificio=" + edificio + "&sala=" + value);
     }
 
     useEffect(() => {
         setTimeout(async () => {
             iframegen();
-            window.getElementById
         }, 500)
     });
 
@@ -68,7 +69,7 @@ export default function Nueve() {
                 <GridItem colSpan={1} height="full" border="0px" borderColor="white" >
                     <Select marginBottom="5vh" onChange={iframegen} id="salas" selectedoptioncolor="yellow" color="blackAlpha.900" bg="white" colorScheme={"purple"} borderColor={"orange"}>
                     </Select>
-                    <Flex w="full" h="full" as="iframe" src="./ajaxInstancias"></Flex>
+                    <Flex id="ajaxInstancias" w="full" h="full" as="iframe" src={"./ajaxInstancias?edificio=" + edificio + "&sala=" + 9101}></Flex>
                 </GridItem>
 
             </Grid>
