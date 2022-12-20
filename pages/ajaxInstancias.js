@@ -34,7 +34,8 @@ export default function Test() {
             </HStack>
 
             <Input disabled color="white" id="entradaDuracion" placeholder="Duracion (en periodos)" />
-            <Button>Crear instancia</Button>
+            <Button bgColor="green.200">Crear instancia</Button>
+            <Button bgColor="red.200">Borrar seleccion</Button>
 
             <>ㅤ</>
 
