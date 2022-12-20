@@ -26,7 +26,13 @@ export default function Nueve() {
             `<iframe width="100%" height="100%" src="showschedule?sala=${value}&edificio=${edificio}" id="Schedule"></iframe>`
     }
 
-    useEffect(() => { setTimeout(async () => { iframegen() }, 500) });
+    useEffect(() => {
+        setTimeout(async () => {
+            iframegen();
+            window.getElementById
+        }, 500)
+    });
+
 
     return (
 
@@ -42,15 +48,9 @@ export default function Nueve() {
                         </Link>
                     </Button>
                 </ButtonGroup>
-
-
-                <ButtonGroup className="boton" variant='outline' spacing='3'>
-                    <Button leftIcon={<IoSave />} w={'90px'} h={'32px'} variant='solid' colorScheme='blue' >Guardar</Button>
-                    <Button leftIcon={<IoClose />} w={'90px'} h={'32px'} variant='solid' colorScheme={'red'}>Cancelar</Button>
-                    <Button leftIcon={<IoOptionsOutline />} colorScheme='green' variant='solid'>Modificar</Button>
-                </ButtonGroup>
-
+                <Text w="full" align="right" fontSize={30}>GLASSROOM BETA 3</Text>
             </Flex>
+
             <Grid
                 h="80vh"
                 w="full"
