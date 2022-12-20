@@ -90,7 +90,7 @@ a {
   cursor: pointer;
 }
 
-.todo-list {}
+
 
 .todo-item {
   display: flex;
@@ -205,15 +205,8 @@ code {
 }
 
 .volver {
-  display: block;
-  width: 125px;
-  background-color: #161818;
-  font-weight: 700;
-  color: white;
-  text-decoration: none;
-  padding: 2px 35px;
-  border-radius: 10px;
-  margin: 4px 20px;
+
+  margin: 2px 12px;
 }
 
 .volver:hover {
@@ -260,7 +253,14 @@ code {
   text-align: center;
   font-family: Verdana;
   font-family: 'PT Sans';
+}
 
+.boton {
+  margin: 4px 30%;
+}
+
+.boton_m {
+  margin: 15px 1000px;
 }
 
 #fotos {

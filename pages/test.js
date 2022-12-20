@@ -36,7 +36,6 @@ export default function Test() {
 
                 <GridItem height="full">
                     <Example />
-                    <img className="flechas" src="/images/derecha.png"></img>
                 </GridItem>
             </Grid>
 
