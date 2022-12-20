@@ -1,11 +1,12 @@
 import { HStack, VStack, Text } from "@chakra-ui/react";
-import { getSchedule } from "../public/functions/instancesToolkit.js";
 import { useRouter } from "next/router.js";
+import { useEffect } from "react";
 
-var edificio;
-var sala;
+let edificio;
+let sala;
 
-function readScheduleMatrix() {
+
+function readScheduleMatrix(sala) {
     let lines = [(<HStack key="bar1" h="12.5%" w="100%" bgColor={"blue.400"} px="2%">
         <Text w="6%" color="black" id='indicadorDatosRecibidos'>{sala}</Text>
         <Text key="Lunes" w="15.6%" textAlign="center" borderRight="2px">Lunes</Text>
@@ -17,6 +18,7 @@ function readScheduleMatrix() {
     </HStack>)]
 
     let periodoRomano = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII'];
+
 
     for (let i = 0; i < 7; i++)
         lines.push(
@@ -41,19 +43,47 @@ function readScheduleMatrix() {
 
 export default function showschedule() {
 
-    const router = useRouter();
-    if (router.query.edificio == undefined) return;
+    sala = useRouter().query.sala;
+    edificio = useRouter().query.edificio;
 
-    sala = router.query["sala"];
-    edificio = router.query["edificio"];
 
+
+    const obtenerDatos = async (sala, edificio) => {
+
+        const data = (await (await fetch('./data/' + edificio + '.json')).json())[sala];
+        const info = await (await fetch('./data/instancias.json')).json();
+
+        console.log('data/' + edificio + '.json');
+        console.log(data, info);
+        console.log(edificio, sala)
+
+
+        let i = 0, j = 0;
+        for (let dia of data.horario) {
+            i++; j = 0;
+            for (let clase of dia) {
+                document.getElementById(i + 10 * j).innerHTML =
+                    clase == 0 ? '-' : info[clase].asignatura;
+                document.getElementById(i + 10 * j++).value = info[clase];
+            }
+        }
+    }
+
+    /*useEffect(() => {
+        console.log(sala, edificio);
+        obtenerDatos(sala, edificio);
+    }, [])
+    */
+    setTimeout(async () => { obtenerDatos(sala, edificio) }, 250);
+
+    if (edificio == undefined) return;
 
     return (
         <>
-            <VStack h="100vh" spacing="0px">
-                {readScheduleMatrix()}
+            <VStack id="frameHorario" h="100vh" spacing="0px">
+                {readScheduleMatrix(sala)}
             </VStack>
-            {void setTimeout(async () => { getSchedule(edificio, sala) }, 150)}
+
         </>
     )
 

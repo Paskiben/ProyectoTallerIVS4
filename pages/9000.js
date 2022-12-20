@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import { Flex, HStack, Text, Divider, Image, Grid, GridItem, Select, AspectRatio } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/router.js"
 import { Button, ButtonGroup } from '@chakra-ui/react'
 import { IoSave, IoOptionsOutline, IoClose, IoArrowUndoOutline } from "react-icons/io5";
@@ -17,15 +17,13 @@ export async function Salas(edificio) {
 
 export default function Nueve() {
 
-
-    var [value, setValue] = useState("9101");
-
     let edificio = useRouter().query.edificio;
     if (edificio != undefined) Salas(edificio);
 
     function iframegen() {
-        value = document.getElementById("salas").value;
-        document.getElementById("frameplace").innerHTML = `<iframe src="showschedule?sala=${value}&edificio=${edificio}" id="Schedule" width="90%" height="500"></iframe>`
+        let value = document.getElementById("salas").value;
+        document.getElementById("frameplace").innerHTML =
+            `<iframe width="100%" height="100%" src="showschedule?sala=${value}&edificio=${edificio}" id="Schedule"></iframe>`
     }
 
     useEffect(() => { setTimeout(async () => { iframegen() }, 500) });
@@ -34,7 +32,7 @@ export default function Nueve() {
 
         <>
             <Head>
-                <title>Edificio</title>
+                <title>{edificio}</title>
             </Head>
             <Flex bgGradient="linear(to-r, #e33e2e, #f7c21c)" h="5vh">
                 <ButtonGroup w={'120px'} h={'32px'} className="volver" bg={"#161818"} borderBottomRadius="10px" >
@@ -56,29 +54,25 @@ export default function Nueve() {
             <Grid
                 h="80vh"
                 w="full"
-                bg="#161818"
+                bg="blackAlpha.900"
                 alignItems="center"
-                padding="3vh"
+                padding="2vh"
 
                 templateColumns="repeat(5,1fr)"
                 gap={4}
             >
 
+                <GridItem id="frameplace" colSpan={4} align="center" h="full" >
+                </GridItem>
+
                 <GridItem colSpan={1} height="full" border="0px" borderColor="white" >
-                    <Select onChange={iframegen} id="salas" selectedoptioncolor="yellow" color="black" bg="white" colorScheme={"purple"} borderColor={"orange"}>
+                    <Select marginBottom="5vh" onChange={iframegen} id="salas" selectedoptioncolor="yellow" color="blackAlpha.900" bg="white" colorScheme={"purple"} borderColor={"orange"}>
                     </Select>
+                    <Flex w="full" h="full" as="iframe" src="./ajaxInstancias"></Flex>
                 </GridItem>
 
-                <GridItem colSpan={4} align="center" >
-                    <Text color="white"> Horario sala </Text>
-                    <div id="frameplace"></div>
-                </GridItem>
             </Grid>
-
-            <HStack as="footer" h="15vh" bg="#161818" alignItems="center" border="0px">
-                <Flex alignContent={'left'}>
-                    <Button leftIcon={<IoOptionsOutline />} bgGradient="linear(to-r, #e33e2e, #f7c21c)" >Modificar</Button>
-                </Flex>
+            <HStack as="footer" h="15vh" bg="blackAlpha.900" alignItems="center" border="0px">
                 <Image src="./images/KS.png" w="25vh" />
                 <Divider orientation="vertical" color="white"></Divider>
                 <Link
