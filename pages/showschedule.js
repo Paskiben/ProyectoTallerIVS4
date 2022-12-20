@@ -49,9 +49,8 @@ export default function showschedule() {
 
 
     const obtenerDatos = async (sala, edificio) => {
-
-        const data = (await (await fetch('./data/' + edificio + '.json')).json())[sala];
-        const info = await (await fetch('./data/instancias.json')).json();
+        const data = JSON.parse(localStorage.getItem(sala))
+        const info = JSON.parse(localStorage.getItem('instancias'))
 
         console.log('data/' + edificio + '.json');
         console.log(data, info);
