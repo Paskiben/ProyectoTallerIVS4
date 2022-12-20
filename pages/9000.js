@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/router.js"
 import { Button, ButtonGroup } from '@chakra-ui/react'
 import { IoSave, IoOptionsOutline, IoClose, IoArrowUndoOutline } from "react-icons/io5";
+import Script from "next/script";
 
 
 export async function Salas(edificio) {
@@ -26,6 +27,22 @@ export default function Nueve() {
             `<iframe width="100%" height="100%" src="showschedule?sala=${value}&edificio=${edificio}" id="Schedule"></iframe>`;
         document.getElementById("ajaxInstancias").setAttribute("src",
             "./ajaxInstancias?edificio=" + edificio + "&sala=" + value);
+        toLocal();
+    }
+
+    async function toLocal() {
+        let sala = document.getElementById("salas").value;
+        const info = await (await fetch('./data/instancias.json')).json();
+        if (sala != undefined) {
+            const data = (await (await fetch('./data/' + edificio + '.json')).json())[sala];
+
+            if (!localStorage.getItem(sala)) {
+                localStorage.setItem(sala, JSON.stringify(data));
+            }
+            if (!localStorage.getItem('instancias')) {
+                localStorage.setItem('instancias', JSON.stringify(info));
+            }
+        }
     }
 
     useEffect(() => {
@@ -38,13 +55,14 @@ export default function Nueve() {
     return (
 
         <>
+            <Script>{toLocal()}</Script>
             <Head>
                 <title>{edificio}</title>
             </Head>
             <Flex bgGradient="linear(to-r, #e33e2e, #f7c21c)" h="5vh">
                 <ButtonGroup w={'120px'} h={'32px'} className="volver" bg={"#161818"} borderBottomRadius="10px" >
                     <Button w={'120px'} h={'32px'} leftIcon={<IoArrowUndoOutline />} colorScheme='black' variant='solid'>
-                        <Link href={"/test"}>
+                        <Link href={"/"}>
                             Volver
                         </Link>
                     </Button>
