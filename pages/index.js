@@ -1,7 +1,7 @@
-import Test from "./test";
+import Principal from "./principal";
 
 const Index = () => {
-  return <Test></Test>;
+  return <Principal></Principal>;
 };
 
 export default Index;

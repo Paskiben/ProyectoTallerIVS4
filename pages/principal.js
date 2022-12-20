@@ -6,7 +6,7 @@ import Example from "./slide";
 
 
 
-export default function Test() {
+export default function Principal() {
 
     const bgColor = "#161818";
 
