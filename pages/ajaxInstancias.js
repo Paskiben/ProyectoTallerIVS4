@@ -35,6 +35,28 @@ export default function Test() {
             document.getElementById("entradaAsignatura").value, document.getElementById(
                 "entradaAutocompletar").checked, document.getElementById("entradaPermanencia").checked,
             document.getElementById("entradaDuracion").value);
+        let instancias = JSON.parse(localStorage.getItem('instancias'));
+        let responsable = document.getElementById("entradaProfesor").value;
+        let asignatura = document.getElementById("entradaAsignatura").value;
+        let duracion = document.getElementById("entradaDuracion").value;
+        if (!duracion){
+            duracion=-1;
+        }
+        let autofill =document.getElementById("entradaAutocompletar").checked
+        if (responsable != null && asignatura!=null){
+            let iTotal=instancias.instanciasTotales+1;
+            instancias[iTotal] = {id: iTotal, asignatura:asignatura,responsabele:responsable,Temp:duracion,autofill:autofill}
+            console.log(instancias.iTotal);
+            instancias.instanciasTotales=iTotal;
+            localStorage.setItem('instancias',JSON.stringify(instancias));
+
+            let horario = JSON.parse(localStorage.getItem(sala));
+            let dia = document.getElementById("selectDia").value
+            let periodo =document.getElementById("selectPeriodo").value
+            horario.horario[dia][periodo]=iTotal;
+            localStorage.setItem(sala,JSON.stringify(horario))
+        }
+        
     }
 
 

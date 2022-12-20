@@ -48,22 +48,23 @@ export default function showschedule() {
 
 
 
-    const obtenerDatos = async (sala, edificio) => {
-        const data = JSON.parse(localStorage.getItem(sala))
-        const info = JSON.parse(localStorage.getItem('instancias'))
-
-        console.log('data/' + edificio + '.json');
-        console.log(data, info);
-        console.log(edificio, sala)
+    function obtenerDatos (sala, edificio) {
+        var data = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem(sala)) : null;
+        var info = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('instancias')) : null;
 
 
-        let i = 0, j = 0;
-        for (let dia of data.horario) {
-            i++; j = 0;
-            for (let clase of dia) {
-                document.getElementById(i + 10 * j).innerHTML =
-                    clase == 0 ? '-' : info[clase].asignatura;
-                document.getElementById(i + 10 * j++).value = info[clase];
+        if (data!==null){
+            console.log('data/' + edificio + '.json');
+            console.log(data, info);
+            console.log(edificio, sala)
+            let i = 0, j = 0;
+            for (let dia of data.horario) {
+                i++; j = 0;
+                for (let clase of dia) {
+                    document.getElementById(i + 10 * j).innerHTML =
+                        clase == 0 ? '-' : info[clase].asignatura;
+                    document.getElementById(i + 10 * j++).value = info[clase];
+                }
             }
         }
     }
