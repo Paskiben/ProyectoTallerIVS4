@@ -3,6 +3,8 @@ import Link from "next/link";
 import { Input, Checkbox, Flex, HStack, VStack, Text, Divider, Image } from "@chakra-ui/react";
 import { Button, ButtonGroup } from '@chakra-ui/react'
 import { IoArrowUndoOutline } from "react-icons/io5";
+import { useRouter } from "next/router.js";
+
 
 function volver() {
     window.location.href = "/";
@@ -11,7 +13,6 @@ function openKumblesoftWeb() {
     window.location.href = "https://github.com/Paskiben/ProyectoTaller";
 }
 
-function cambiar(){}
 function deshabilitarEdicionPeriodos(){}
 function agregar(){}
 function ver(){}
@@ -32,6 +33,32 @@ function actualizarBotonBorrar(){
 }
 
 export default function manageInstances(){
+ 
+    var asign = useRouter().query.asignatura ?? "";
+    var profe = useRouter().query.profesor ?? "";
+    
+    var edificio = useRouter().query.edificio;
+    var sala = useRouter().query.sala;
+    var dia = useRouter().query.dia;
+    var periodo = useRouter().query.periodo;
+
+    function cambiar() {
+        document.getElementById("resultadosDeBusqueda").setAttribute("src",
+            "busqueda?profesor=" +
+            (document.getElementById("entradaProfesor").value == "" ? "NA" : document.getElementById("entradaProfesor").value) +
+            "&asignatura=" +
+            (document.getElementById("entradaAsignatura").value == "" ? "NA" : document.getElementById("entradaAsignatura").value) +
+            "&dia=" +
+            1 +
+            "&periodo=" +
+            1 +
+            "&edificio=" +
+            1 +
+            "&sala=" +
+            1 +
+            "&modo=showOnly"
+        );
+    }
 
     return (
         
@@ -48,15 +75,15 @@ export default function manageInstances(){
                 
             </Flex>
             
-            <Text bgColor={"blackAlpha.900"} color="white" fontSize={30} textAlign="center" w="full">Administrador de instancias</Text>
+
             <VStack paddingX="5vh" bgColor={"blackAlpha.900"} h="80vh">
-            
+            <Text color="white" fontSize={30} textAlign="center" w="full">Administrador de instancias</Text>
                 <HStack>
-                    <Text id="textId"color="orange" fontSize={"25px"}>ID:</Text>
+                    <Text id="textId"color="orange" fontSize={"20px"}>ID:</Text>
                     <Input id="inputId"  onChange={actualizarBotonBorrar} color={"orange"} placeholder="-" w="5vh"/>
                 </HStack>
-                <Input color="white" id="entradaProfesor" placeholder="Responsable" onChange={cambiar} />
-                <Input color="white" id="entradaAsignatura" placeholder="Asignatura" onChange={cambiar} />
+                <Input w="80%"color="white" id="entradaProfesor" placeholder="Responsable" onChange={cambiar} />
+                <Input w="80%" color="white" id="entradaAsignatura" placeholder="Asignatura" onChange={cambiar} />
 
                 <HStack>
                     <Text color="white">Recomendar:</Text>
@@ -68,11 +95,12 @@ export default function manageInstances(){
                     <Checkbox id="entradaPermanencia" onChange={deshabilitarEdicionPeriodos} defaultChecked="true"></Checkbox>
                 </HStack>
 
-                <Input disabled={true} color="white" id="entradaDuracion" placeholder="Duracion (en periodos)" />
-                <Button disabled={true} id="botonEditar" bgColor="green" color="white" onClick={agregar}>Editar instancia</Button>
+                <Input disabled={true}  w="80%" color="white" id="entradaDuracion" placeholder="Duracion (en periodos)" />
+                <Button disabled={true} id="botonEditar" bgColor="blue.500" color="white" onClick={agregar}>Editar instancia</Button>
                 <Button id="botonBorrar" bgColor="red.500" color="white" onClick={borrar} disabled={true}>Borrar instancia</Button>
 
-            </VStack>
+                <Flex w="full" h="40vh" as="iframe" id="resultadosDeBusqueda" src="busqueda?profesor=NA&asignatura=NA&function=buscar&modo=showOnly"></Flex>
+                </VStack>
 
             
 

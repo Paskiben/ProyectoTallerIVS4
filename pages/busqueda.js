@@ -12,8 +12,9 @@ export default function buscar() {
     var sala = useRouter().query.sala;
     var dia = useRouter().query.dia;
     var periodo = useRouter().query.periodo;
+    var modo = useRouter().query.modo;
 
-    let instancias = typeof window !== 'undefined' ? localStorage.getItem('instancias') : null
+    var instancias = typeof window !== 'undefined' ? localStorage.getItem('instancias') : null
     instancias = JSON.parse(instancias);
 
     if (profe == "NA") profe = "";
@@ -68,7 +69,7 @@ export default function buscar() {
     for (let elem of allResultsArray) {
         outElems.push(
             <VStack key={elem.id + "Stack"} paddingTop={"4vh"} bgColor={"blackAlpha.900"}>
-                <Text key={elem.id + "Text"} id={i + "Text"} color="white" bgGradient="linear(to-r, #e33e2e, #f7c21c)" w="full" textAlign="center">Opcion {++i}</Text>
+                <Text key={elem.id + "Text"} id={i + "Text"} color="white" bgGradient="linear(to-r, #e33e2e, #f7c21c)" w="full" textAlign="center">{modo != "showOnly" ? "Opcion " + (++i) : "Id: " + elem.id}</Text>
                 <Input key={elem.id + "Input1"} id={i + "Input1"} disabled color="white" value={elem.responsable} />
                 <Input key={elem.id + "Input2"} id={i + "Input2"} disabled color="white" value={elem.asignatura} />
 
