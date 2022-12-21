@@ -1,13 +1,12 @@
 import { HStack, VStack, Text } from "@chakra-ui/react";
 import { useRouter } from "next/router.js";
-import { useEffect } from "react";
 
 let edificio;
 let sala;
 
 
 function readScheduleMatrix(sala) {
-    let lines = [(<HStack key="bar1" h="12.5%" w="100%" bgColor={"blue.400"} px="2%">
+    let lines = [(<HStack key="bar1" h="12.5%" w="100%" bgGradient="linear(to-t, #e14e2e, #f7c21c)" px="2%">
         <Text w="6%" color="black" id='indicadorDatosRecibidos'>{sala}</Text>
         <Text key="Lunes" w="15.6%" textAlign="center" borderRight="2px">Lunes</Text>
         <Text key="Martes" w="15.6%" textAlign="center" borderRight="2px">Martes</Text>
@@ -48,12 +47,12 @@ export default function showschedule() {
 
 
 
-    function obtenerDatos (sala, edificio) {
+    function obtenerDatos(sala, edificio) {
         var data = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem(sala)) : null;
         var info = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('instancias')) : null;
 
 
-        if (data!==null){
+        if (data !== null) {
             console.log('data/' + edificio + '.json');
             console.log(data, info);
             console.log(edificio, sala)

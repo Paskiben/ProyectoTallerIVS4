@@ -20,7 +20,7 @@ export default class Example extends Component {
   slides = [
     {
       key: uuidv4(),
-      content: <div><a href="/9000?edificio=9000"> <img id="fotos" src="/images/10k.jpg" alt="1" /></a>
+      content: <div><a href="/9000?edificio=10000"> <img id="fotos" src="/images/10k.jpg" alt="1" /></a>
         <h1 className="Nombres">Edificio 10000</h1>
       </div>
     },
@@ -38,43 +38,43 @@ export default class Example extends Component {
     },
     {
       key: uuidv4(),
-      content: <div><a href="/9000?edificio=7000"><img id="fotos" src="/images/13k.jpeg" alt="4" /></a>
+      content: <div><a href="/9000?edificio=13000"><img id="fotos" src="/images/13k.jpeg" alt="4" /></a>
         <h1 className="Nombres">Edificio 13000</h1>
       </div>
     },
     {
       key: uuidv4(),
-      content: <div><a href="/9000?edificio=7000"><img id="fotos" src="/images/4k.jpeg" alt="5" /></a>
+      content: <div><a href="/9000?edificio=4000"><img id="fotos" src="/images/4k.jpeg" alt="5" /></a>
         <h1 className="Nombres">Edificio 4000</h1>
       </div>
     },
     {
       key: uuidv4(),
-      content: <div><a href="/9000?edificio=7000"><img id="fotos" src="/images/gym.jpeg" alt="6" /></a>
+      content: <div><a href="/9000?edificio=Gimnasio"><img id="fotos" src="/images/gym.jpeg" alt="6" /></a>
         <h1 className="Nombres">Gimnasio</h1>
       </div>
     },
     {
       key: uuidv4(),
-      content: <div><a href="/9000?edificio=7000"><img id="fotos" src="/images/14k.jpg" alt="7" /></a>
+      content: <div><a href="/9000?edificio=14000"><img id="fotos" src="/images/14k.jpg" alt="7" /></a>
         <h1 className="Nombres">Edificio 14000</h1>
       </div>
     },
     {
       key: uuidv4(),
-      content: <div><a href="/9000?edificio=7000"><img id="fotos" src="/images/3k.jpeg" alt="8" /></a>
+      content: <div><a href="/9000?edificio=3000"><img id="fotos" src="/images/3k.jpeg" alt="8" /></a>
         <h1 className="Nombres">Edificio 3000</h1>
       </div>
     },
     {
       key: uuidv4(),
-      content: <div><a href="/9000?edificio=7000"><img id="fotos" src="/images/2k.jpg" alt="9" /></a>
+      content: <div><a href="/9000?edificio=2000"><img id="fotos" src="/images/2k.jpg" alt="9" /></a>
         <h1 className="Nombres">Edificio 2000</h1>
       </div>
     },
     {
       key: uuidv4(),
-      content: <div><a href="/9000?edificio=7000"><img id="fotos" src="/images/11k.jpeg" alt="10" /></a>
+      content: <div><a href="/9000?edificio=11000"><img id="fotos" src="/images/11k.jpeg" alt="10" /></a>
         <h1 className="Nombres">Edificio 11000</h1>
       </div>
     },

@@ -1,5 +1,5 @@
 {
-  "instanciasTotales": 4,
+  "instanciasTotales": 6,
 
   "1": {
     "id": "1",
@@ -27,6 +27,20 @@
     "asignatura": "EDO",
     "responsable": "Raul Cisternas",
     "Temp": 0,
+    "autofill": true
+  },  
+  "5": {
+    "id": "5",
+    "asignatura": "Estructuras de Datos",
+    "responsable": "Maria Eliana de la Maza",
+    "Temp": -1,
+    "autofill": true
+  },
+    "6": {
+    "id": "5",
+    "asignatura": "Calculo en varias variables",
+    "responsable": "Juan Herrera",
+    "Temp": -1,
     "autofill": true
   }
 }
