@@ -229,9 +229,9 @@ code {
 }
 
 .edificios {
-  height: 400px;
-  width: 100%;
-  margin: 0 auto;
+  height: 60vh;
+  width: 100vh;
+
   justify-content: space-around;
   flex-wrap: wrap;
   max-width: 1000px;
@@ -264,7 +264,7 @@ code {
 }
 
 #fotos {
-  width: 500px;
+  width: 50vh;
   height: 80%;
   object-fit: contain;
   border-radius: 14px;
