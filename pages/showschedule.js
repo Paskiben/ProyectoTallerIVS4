@@ -62,17 +62,13 @@ export default function showschedule() {
                 for (let clase of dia) {
                     document.getElementById(i + 10 * j).innerHTML =
                         clase == 0 ? '-' : info[clase].asignatura;
-                    document.getElementById(i + 10 * j++).value = info[clase];
+                    if(info[clase] != undefined) 
+                        document.getElementById(i + 10 * j++).value = info[clase];
                 }
             }
         }
     }
 
-    /*useEffect(() => {
-        console.log(sala, edificio);
-        obtenerDatos(sala, edificio);
-    }, [])
-    */
     setTimeout(async () => { obtenerDatos(sala, edificio) }, 250);
 
     if (edificio == undefined) return;
