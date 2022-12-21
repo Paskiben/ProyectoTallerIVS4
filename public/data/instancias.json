@@ -37,9 +37,30 @@
     "autofill": true
   },
     "6": {
-    "id": "5",
+    "id": "6",
     "asignatura": "Calculo en varias variables",
     "responsable": "Juan Herrera",
+    "Temp": -1,
+    "autofill": true
+  },
+  "7": {
+    "id": "7",
+    "asignatura": "Taller II",
+    "responsable": "Erick Araya",
+    "Temp": -1,
+    "autofill": true
+  },
+  "8": {
+    "id": "8",
+    "asignatura": "Taller III",
+    "responsable": "Hector Ferrada",
+    "Temp": -1,
+    "autofill": true
+  },
+  "9": {
+    "id": "9",
+    "asignatura": "Taller IV",
+    "responsable": "Julio Daniel Guerra",
     "Temp": -1,
     "autofill": true
   }
