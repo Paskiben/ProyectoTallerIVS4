@@ -40,6 +40,7 @@ export default function Principal() {
                     <span class="cuatro"></span>
                 </div>
                 <div>
+
                     <Grid
                         as="content"
                         h="full"
@@ -48,7 +49,7 @@ export default function Principal() {
                         templateColumns></Grid>
 
                     <VStack bgColor="#161818" h="50vh">
-
+                        <Text fontSize={"30px"} color="white" align={"center"}>Glassroom CUBE</Text>
                         <Example />
                     </VStack>
 
