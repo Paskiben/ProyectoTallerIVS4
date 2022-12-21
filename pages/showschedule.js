@@ -60,10 +60,10 @@ export default function showschedule() {
             for (let dia of data.horario) {
                 i++; j = 0;
                 for (let clase of dia) {
-                    document.getElementById(i + 10 * j).innerHTML =
+                    if(clase != 0 && info[clase] != undefined) 
+                        document.getElementById(i + 10 * j).innerHTML =
                         clase == 0 ? '-' : info[clase].asignatura;
-                    if(info[clase] != undefined) 
-                        document.getElementById(i + 10 * j++).value = info[clase];
+                    j++;
                 }
             }
         }

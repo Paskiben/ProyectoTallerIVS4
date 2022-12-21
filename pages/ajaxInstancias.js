@@ -35,6 +35,10 @@ export default function Test() {
         let instanciasTotales = JSON.parse(localStorage.getItem('instancias'));
         let instancia = JSON.parse(localStorage.getItem(sala)).horario[dia][periodo];
         let info = instanciasTotales[instancia];
+        if (info==undefined) {
+            alert("Campo vacio:\nPor favor escoja un dia y periodo con informacion valida.");
+            return
+        }
         let datos = `
             DATOS DE LA INSTANCIA   /-ID: ${info.id}-\\
             """""""""""""""""""""""""""""""""""""""""
