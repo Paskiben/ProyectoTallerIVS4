@@ -70,6 +70,7 @@ export default function Test() {
         let horario = JSON.parse(localStorage.getItem(sala));
         let dia = document.getElementById("selectDia").value;
         let periodo = document.getElementById("selectPeriodo").value;
+        alert(`dia: ${dia}, periodo: ${periodo}`)
         horario.horario[dia][periodo] = iTotal;
         localStorage.setItem(sala, JSON.stringify(horario));
         setTimeout(async () => { window.top.location.reload() }, 200);
@@ -105,7 +106,7 @@ export default function Test() {
                     <option value="3">IV</option>
                     <option value="4">V</option>
                     <option value="5">VI</option>
-                    <option value="5">VII</option>
+                    <option value="6">VII</option>
                 </Select>
             </HStack>
 
