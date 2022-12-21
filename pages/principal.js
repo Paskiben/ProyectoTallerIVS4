@@ -1,4 +1,4 @@
-import { Button, Flex, HStack, Text, Divider, Image, Grid, GridItem, Select, VStack, } from "@chakra-ui/react";
+import { Button, Flex, HStack, Stack, Text, Divider, Image, Grid, GridItem, Select, VStack, } from "@chakra-ui/react";
 import Link from "next/link";
 import Head from "next/head";
 import Example from "./slide";
@@ -24,26 +24,28 @@ export default function Principal() {
 
     return (
         <>
-            <Head>
-                <title>Glassroom</title>
-                <link rel="icon" href="/kumble.ico" />
-            </Head>
-            <Flex bgGradient="linear(to-r, #e33e2e, #f7c21c)" h="5vh">
-                <Image src="cooltext425965679077952.png"></Image>
-            </Flex>
 
-            <VStack bgColor="#161818" h="80vh">
-                <Text color="white" fontSize={"30"}>Ir a edificio:</Text>
-                <HStack>
+            <Grid
+                as="content"
+                h="full"
+                w="full"
+                alignItems="center"
+                templateColumns></Grid>
+            <VStack bgColor="#161818" h="50vh">
+
+                <Example />
+            </VStack>
+
+            <HStack as="footer" h="35vh" bg="#161818" alignItems="center" border="0px">
+
+                <Text color="white" fontSize={"3vh"}>Ir a edificio:</Text>
+                <HStack h="30vh" w="50vh" bgColor="#161818">
                     <Select id="selectEdificio" color="gray">
                         {opciones()}
                     </Select>
                     <Button onClick={irEdificio} bgColor="orange" color="white">Ir</Button>
                 </HStack>
-                <Text color="white" fontSize="30">Por imagenes:</Text>
-                <Example />
-            </VStack>
-
+            </HStack>
 
             <HStack as="footer" h="15vh" bg="#161818" alignItems="center" border="0px">
                 <Image src="./images/KS.png" w="25vh" onClick={openKumblesoftWeb} />
