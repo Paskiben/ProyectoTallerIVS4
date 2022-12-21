@@ -58,14 +58,13 @@ export default function Nueve() {
     useEffect(() => {
         setTimeout(async () => {
             iframegen();
-        }, 400)
+        }, 300)
     });
 
 
     return (
 
         <>
-            <Script>{toLocal()}</Script>
             <Head>
                 <title>{edificio}</title>
             </Head>
