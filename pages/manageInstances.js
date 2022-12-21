@@ -13,9 +13,43 @@ function openKumblesoftWeb() {
 
 function cambiar(){}
 function deshabilitarEdicionPeriodos(){}
-function agregar(){}
+function agregar(){
+    var data = JSON.parse(localStorage.getItem('instancias'));
+    var id = document.getElementById("inputId").value;
+    if (data[id]){
+        var responsable= document.getElementById("entradaProfesor").value;
+        var asignatura = document.getElementById("entradaAsignatura").value;
+        var autofill = document.getElementById("entradaAutocompletar").checked;
+        var permanente = document.getElementById("entradaPermanencia").checked;
+        var duracion = document.getElementById("entradaDuracion").value;
+        if (responsable !== undefined){
+            data[id].responsable=responsable;
+        }
+        if (asignatura !== undefined){
+            data[id].asignatura = asignatura;
+        }
+        if (permanente){
+            data[id].permanente=-1;
+        }else{
+            if(duracion!==undefined){
+                data[id].permanente=duracion;
+            }else{
+                data[id].permanente=0;
+            }
+        }
+        data[id].autofill=autofill;
+
+        localStorage.setItem('instancias',JSON.stringify(data))
+    }
+}
 function ver(){}
-function borrar(){}
+function borrar(){
+    var data = JSON.parse(localStorage.getItem('instancias'));
+    var id = document.getElementById("inputId").value;
+    console.log(data);
+    delete data[id];
+    localStorage.setItem('instancias',JSON.stringify(data))
+}
 function actualizarBotonBorrar(){
     document.getElementById("botonBorrar").innerHTML="Borrar instancia "+
     document.getElementById("inputId").value;
@@ -69,8 +103,8 @@ export default function manageInstances(){
                 </HStack>
 
                 <Input disabled={true} color="white" id="entradaDuracion" placeholder="Duracion (en periodos)" />
-                <Button disabled={true} id="botonEditar" bgColor="green" color="white" onClick={agregar}>Editar instancia</Button>
-                <Button id="botonBorrar" bgColor="red.500" color="white" onClick={borrar} disabled={true}>Borrar instancia</Button>
+                <Button id="botonEditar" bgColor="green" color="white" onClick={agregar}>Editar instancia</Button>
+                <Button id="botonBorrar" bgColor="red.500" color="white" onClick={borrar} >Borrar instancia</Button>
 
             </VStack>
 
