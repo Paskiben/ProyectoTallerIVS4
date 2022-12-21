@@ -70,7 +70,6 @@ export default function Test() {
         let horario = JSON.parse(localStorage.getItem(sala));
         let dia = document.getElementById("selectDia").value;
         let periodo = document.getElementById("selectPeriodo").value;
-        alert(`dia: ${dia}, periodo: ${periodo}`)
         horario.horario[dia][periodo] = iTotal;
         localStorage.setItem(sala, JSON.stringify(horario));
         setTimeout(async () => { window.top.location.reload() }, 200);
