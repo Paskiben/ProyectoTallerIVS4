@@ -24,43 +24,61 @@ export default function Principal() {
 
     return (
         <>
+            <section class="contenedor-fondo-animado">
+                <div class="animacion">
+                    <span class="uno"></span>
+                    <span class="dos"></span>
+                    <span class="tres"></span>
+                    <span class="cuatro"></span>
+                    <span class="uno"></span>
+                    <span class="dos"></span>
+                    <span class="tres"></span>
+                    <span class="cuatro"></span>
+                    <span class="uno"></span>
+                    <span class="dos"></span>
+                    <span class="tres"></span>
+                    <span class="cuatro"></span>
+                </div>
+                <div>
+                    <Grid
+                        as="content"
+                        h="full"
+                        w="full"
+                        alignItems="center"
+                        templateColumns></Grid>
 
-            <Grid
-                as="content"
-                h="full"
-                w="full"
-                alignItems="center"
-                templateColumns></Grid>
-            <VStack bgColor="#161818" h="50vh">
+                    <VStack bgColor="#161818" h="50vh">
 
-                <Example />
-            </VStack>
+                        <Example />
+                    </VStack>
 
-            <HStack as="footer" h="35vh" bg="#161818" alignItems="center" border="0px">
+                    <HStack as="footer" h="35vh" bg="#161818" alignItems="center" border="0px">
 
-                <Text color="white" fontSize={"3vh"}>Ir a edificio:</Text>
-                <HStack h="30vh" w="50vh" bgColor="#161818">
-                    <Select id="selectEdificio" color="gray">
-                        {opciones()}
-                    </Select>
-                    <Button onClick={irEdificio} bgColor="orange" color="white">Ir</Button>
-                </HStack>
-            </HStack>
+                        <Text color="white" fontSize={"3vh"}>Ir a edificio:</Text>
+                        <HStack h="30vh" w="50vh" bgColor="#161818">
+                            <Select id="selectEdificio" color="gray">
+                                {opciones()}
+                            </Select>
+                            <Button onClick={irEdificio} bgColor="orange" color="white">Ir</Button>
+                        </HStack>
+                    </HStack>
 
-            <HStack as="footer" h="15vh" bg="#161818" alignItems="center" border="0px">
-                <Image src="./images/KS.png" w="25vh" onClick={openKumblesoftWeb} />
-                <Divider orientation="vertical" color="white"></Divider>
-                <Link
-                    href={{
-                        pathname: "https://www.uach.cl/inicio-uach",
-                    }}
-                >
-                    <a target="_blank">
-                        <Image src="https://cdn.discordapp.com/attachments/1022221381850632395/1034842785032970320/Logoblancopng.png" w="25vh" />
-                    </a>
-                </Link>
+                    <HStack as="footer" h="15vh" bg="#161818" alignItems="center" border="0px">
+                        <Image src="./images/KS.png" w="25vh" onClick={openKumblesoftWeb} />
+                        <Divider orientation="vertical" color="white"></Divider>
+                        <Link
+                            href={{
+                                pathname: "https://www.uach.cl/inicio-uach",
+                            }}
+                        >
+                            <a target="_blank">
+                                <Image src="https://cdn.discordapp.com/attachments/1022221381850632395/1034842785032970320/Logoblancopng.png" w="25vh" />
+                            </a>
+                        </Link>
 
-            </HStack>
+                    </HStack>
+                </div>
+            </section>
         </>
     )
 
