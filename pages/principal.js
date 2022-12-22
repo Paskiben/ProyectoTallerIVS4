@@ -17,7 +17,7 @@ export function opciones() {
 
 
 export function irEdificio() {
-    window.location.href = "9000?edificio=" + document.getElementById("selectEdificio").value;
+    window.location.href = "edificio?edificio=" + document.getElementById("selectEdificio").value;
 }
 
 export default function Principal() {
