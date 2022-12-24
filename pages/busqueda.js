@@ -7,8 +7,6 @@ export default function buscar() {
 
     var asign = useRouter().query.asignatura ?? "";
     var profe = useRouter().query.profesor ?? "";
-
-    var edificio = useRouter().query.edificio;
     var sala = useRouter().query.sala;
     var dia = useRouter().query.dia;
     var periodo = useRouter().query.periodo;
@@ -21,15 +19,13 @@ export default function buscar() {
     if (asign == "NA") asign = "";
     if (profe == "" && asign == "") return <VStack h="100vh" bgColor="blackAlpha.900">
         <Text textAlign="center" color="white">
-            Para ver recomendaciones, escriba algo en el recuadro de profesor o asignatura
+            Para ver recomendaciones, escriba algo en el recuadro de responsable o asignatura...
         </Text>
     </VStack>
 
 
     function guardarRecomendacion() {
-        console.log(dia, periodo, edificio, sala, document.getElementById("1Input1").value, document.getElementById("1Input2").value,
-            document.getElementById("1Permanente").checked, document.getElementById("1Duracion").value, document.getElementById("1Button").getAttribute('instance')
-        )
+
         let horario = JSON.parse(localStorage.getItem(sala));
         let instance = document.getElementById("1Button").getAttribute('instance');
         horario.horario[dia][periodo] = instance;
@@ -39,7 +35,7 @@ export default function buscar() {
 
     let fusej = [];
     for (let elem in instancias)
-        if (elem != "instanciasTotales" && instancias[elem].autofill) fusej.push(instancias[elem]);
+        if (elem != "instanciasTotales" && (modo == "showOnly" ? true : instancias[elem].autofill)) fusej.push(instancias[elem]);
     const fuse = new Fuse(fusej, {
         keys: ["responsable", "asignatura"]
     })
@@ -68,7 +64,7 @@ export default function buscar() {
     let i = 0;
     for (let elem of allResultsArray) {
         outElems.push(
-            <VStack key={elem.id + "Stack"} paddingTop={"4vh"} bgColor={"blackAlpha.900"}>
+            <VStack h="50vh" key={elem.id + "Stack"} paddingTop={"4vh"} bgColor={"blackAlpha.900"}>
                 <Text key={elem.id + "Text"} id={i + "Text"} color="white" bgGradient="linear(to-r, #e33e2e, #f7c21c)" w="full" textAlign="center">{modo != "showOnly" ? "Opcion " + (++i) : "Id: " + elem.id}</Text>
                 <Input key={elem.id + "Input1"} id={i + "Input1"} disabled color="white" value={elem.responsable} />
                 <Input key={elem.id + "Input2"} id={i + "Input2"} disabled color="white" value={elem.asignatura} />
@@ -86,5 +82,4 @@ export default function buscar() {
 
     if (results.length == 1) outElems.push(<VStack key="sizeAdapter" h="50vh" bgColor="blackAlpha.900"></VStack>)
     return (outElems)
-
 }

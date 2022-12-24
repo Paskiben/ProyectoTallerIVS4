@@ -26,7 +26,6 @@ export default function Nueve() {
 
     function iframegen() {
         let value = document.getElementById("salas").value;
-        console.log(value);
         document.getElementById("frameplace").innerHTML =
             `<iframe width="100%" height="100%" src="showschedule?sala=${value}&edificio=${edificio}" id="Schedule"></iframe>`;
         document.getElementById("ajaxInstancias").setAttribute("src",

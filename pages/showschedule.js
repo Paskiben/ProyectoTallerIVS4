@@ -45,24 +45,18 @@ export default function showschedule() {
     sala = useRouter().query.sala;
     edificio = useRouter().query.edificio;
 
-
-
-    function obtenerDatos(sala, edificio) {
+    function obtenerDatos(sala) {
         var data = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem(sala)) : null;
         var info = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('instancias')) : null;
 
-
         if (data !== null) {
-            console.log('data/' + edificio + '.json');
-            console.log(data, info);
-            console.log(edificio, sala)
             let i = 0, j = 0;
             for (let dia of data.horario) {
                 i++; j = 0;
                 for (let clase of dia) {
-                    if(clase != 0 && info[clase] != undefined) 
+                    if (clase != 0 && info[clase] != undefined)
                         document.getElementById(i + 10 * j).innerHTML =
-                        clase == 0 ? '-' : info[clase].asignatura;
+                            clase == 0 ? '-' : info[clase].asignatura;
                     j++;
                 }
             }

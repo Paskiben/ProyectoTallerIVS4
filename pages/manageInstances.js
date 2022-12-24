@@ -3,7 +3,6 @@ import Link from "next/link";
 import { Input, Checkbox, Flex, HStack, VStack, Text, Divider, Image } from "@chakra-ui/react";
 import { Button, ButtonGroup } from '@chakra-ui/react'
 import { IoArrowUndoOutline } from "react-icons/io5";
-import { useRouter } from "next/router.js";
 
 
 function volver() {
@@ -13,68 +12,83 @@ function openKumblesoftWeb() {
     window.location.href = "https://github.com/Paskiben/ProyectoTaller";
 }
 
-function deshabilitarEdicionPeriodos(){}
-function agregar(){
-    var data = JSON.parse(localStorage.getItem('instancias'));
+function deshabilitarEdicionPeriodos() { }
+function agregar() {
+
     var id = document.getElementById("inputId").value;
-    if (data[id]){
-        var responsable= document.getElementById("entradaProfesor").value;
+    if (id == "") {
+        alert("Por favor ingrese el id de la instancia a editar.");
+        return;
+    }
+    var data = JSON.parse(localStorage.getItem('instancias'));
+    if (data[id]) {
+        var responsable = document.getElementById("entradaProfesor").value;
         var asignatura = document.getElementById("entradaAsignatura").value;
         var autofill = document.getElementById("entradaAutocompletar").checked;
         var permanente = document.getElementById("entradaPermanencia").checked;
         var duracion = document.getElementById("entradaDuracion").value;
-        if (responsable !== undefined){
-            data[id].responsable=responsable;
+        if (responsable != "") {
+            data[id].responsable = responsable;
         }
-        if (asignatura !== undefined){
+        else {
+            alert("Por favor ingrese un responsable.");
+            return;
+        }
+        if (asignatura != "") {
             data[id].asignatura = asignatura;
         }
-        if (permanente){
-            data[id].permanente=-1;
-        }else{
-            if(duracion!==undefined){
-                data[id].permanente=duracion;
-            }else{
-                data[id].permanente=0;
+        else {
+            alert("Por favor ingrese una asignatura.");
+            return;
+        }
+        if (permanente) {
+            data[id].permanente = -1;
+        } else {
+            if (duracion !== undefined) {
+                data[id].permanente = duracion;
+            } else {
+                data[id].permanente = 0;
             }
         }
-        data[id].autofill=autofill;
+        data[id].autofill = autofill;
 
-        localStorage.setItem('instancias',JSON.stringify(data))
+        localStorage.setItem('instancias', JSON.stringify(data))
+        alert("Edicion completada exitosamente.");
+        window.location.reload();
+    }
+    else {
+        alert("ID no encontrado");
     }
 }
-function ver(){}
-function borrar(){
-    var data = JSON.parse(localStorage.getItem('instancias'));
+
+function borrar() {
+
     var id = document.getElementById("inputId").value;
-    console.log(data);
+    if (id == "") {
+        alert("Por favor ingrese el ID de la instancia a eliminar.");
+        return;
+    };
+    var data = JSON.parse(localStorage.getItem('instancias'));
+    alert(`Se eliminara la instancia de id ${id} si existe...`);
     delete data[id];
-    localStorage.setItem('instancias',JSON.stringify(data))
+    localStorage.setItem('instancias', JSON.stringify(data));
+    window.location.reload();
 }
-function actualizarBotonBorrar(){
-    document.getElementById("botonBorrar").innerHTML="Borrar instancia "+
-    document.getElementById("inputId").value;
-    document.getElementById("botonEditar").innerHTML="Editar instancia "+
-    document.getElementById("inputId").value;
-    console.log(document.getElementById("inputId").value);
-    if (document.getElementById("inputId").value==""){
-        document.getElementById("botonEditar").disabled=true;
-        document.getElementById("botonBorrar").disabled=true;
+function actualizarBotonBorrar() {
+    document.getElementById("botonBorrar").innerHTML = "Borrar instancia " +
+        document.getElementById("inputId").value;
+    document.getElementById("botonEditar").innerHTML = "Editar instancia " +
+        document.getElementById("inputId").value;
+    if (document.getElementById("inputId").value == "") {
+        document.getElementById("botonEditar").disabled = true;
+        document.getElementById("botonBorrar").disabled = true;
         return;
     }
-    document.getElementById("botonBorrar").disabled=false;
-    document.getElementById("botonEditar").disabled=false;
+    document.getElementById("botonBorrar").disabled = false;
+    document.getElementById("botonEditar").disabled = false;
 }
 
-export default function manageInstances(){
- 
-    var asign = useRouter().query.asignatura ?? "";
-    var profe = useRouter().query.profesor ?? "";
-    
-    var edificio = useRouter().query.edificio;
-    var sala = useRouter().query.sala;
-    var dia = useRouter().query.dia;
-    var periodo = useRouter().query.periodo;
+export default function manageInstances() {
 
     function cambiar() {
         document.getElementById("resultadosDeBusqueda").setAttribute("src",
@@ -95,7 +109,7 @@ export default function manageInstances(){
     }
 
     return (
-        
+
         <>
             <Head>
                 <title>Modificar Instancias</title>
@@ -106,17 +120,17 @@ export default function manageInstances(){
                         Volver
                     </Button>
                 </ButtonGroup>
-                
+
             </Flex>
-            
+
 
             <VStack paddingX="5vh" bgColor={"blackAlpha.900"} h="80vh">
-            <Text color="white" fontSize={30} textAlign="center" w="full">Administrador de instancias</Text>
+                <Text color="white" fontSize={30} textAlign="center" w="full">Administrador de instancias</Text>
                 <HStack>
-                    <Text id="textId"color="orange" fontSize={"20px"}>ID:</Text>
-                    <Input id="inputId"  onChange={actualizarBotonBorrar} color={"orange"} placeholder="-" w="5vh"/>
+                    <Text id="textId" color="orange" fontSize={"20px"}>ID:</Text>
+                    <Input id="inputId" onChange={actualizarBotonBorrar} color={"orange"} placeholder="-" w="5vh" />
                 </HStack>
-                <Input w="80%"color="white" id="entradaProfesor" placeholder="Responsable" onChange={cambiar} />
+                <Input w="80%" color="white" id="entradaProfesor" placeholder="Responsable" onChange={cambiar} />
                 <Input w="80%" color="white" id="entradaAsignatura" placeholder="Asignatura" onChange={cambiar} />
 
                 <HStack>
@@ -129,14 +143,14 @@ export default function manageInstances(){
                     <Checkbox id="entradaPermanencia" onChange={deshabilitarEdicionPeriodos} defaultChecked="true"></Checkbox>
                 </HStack>
 
-                <Input disabled={true}  w="80%" color="white" id="entradaDuracion" placeholder="Duracion (en periodos)" />
+                <Input disabled={true} w="80%" color="white" id="entradaDuracion" placeholder="Duracion (en periodos)" />
                 <Button id="botonEditar" bgColor="blue.500" color="white" onClick={agregar}>Editar instancia</Button>
                 <Button id="botonBorrar" bgColor="red.500" color="white" onClick={borrar} >Borrar instancia</Button>
 
                 <Flex w="full" h="40vh" as="iframe" id="resultadosDeBusqueda" src="busqueda?profesor=NA&asignatura=NA&function=buscar&modo=showOnly"></Flex>
-                </VStack>
+            </VStack>
 
-            
+
 
             <HStack as="footer" h="15vh" bg="blackAlpha.900" alignItems="center" border="0px">
                 <Image src="./images/KS.png" w="25vh" onClick={openKumblesoftWeb} />
